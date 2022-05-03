@@ -8,11 +8,33 @@
     <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
     <link rel="manifest" href="media/favicon/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>Library</title>
 </head>
 <body>
-    
+    <div class="heading">
+        <h1>Library 📚</h1>
+        <div class="menu-box"> 
+            <button id="newBook">Add Book ➕</button>
+            <img src="media/moon.png" id="icon">
+        </div>   
+    </div>
+    <div class="library" id="books"></div>
+    <div class="modal">
+        <form id="addNewBook">
+            <input class="input" type="text" placeholder="Title" id="title" maxlength="100" name="title" required>
+            <input class="input" type="text" placeholder="Author" id="author" maxlength="100" name="author" required>
+            <input class="input" type="number" placeholder="Pages" id="pages" maxlength="10000" name="pages" required>
+            <div class="read">
+                <label for="is-read">Have you read it?</label>
+                <input type="checkbox" class="checkbox" id="isRead" name="read">
+            </div>
+            <button id="submit" type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>

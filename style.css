@@ -1,3 +1,83 @@
+:root {
+    --primary-color: #edf2fc;
+    --secondary-color: #212121;
+}
+
+.dark-theme {
+    --primary-color: #212121;
+    --secondary-color: #edf2fc;
+}
+
 body {
-    background-color: rgb(102, 102, 102);
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#addNewBook {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Oleo Script', cursive;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+#icon {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin: auto;
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+
+.menu-box {
+    display: flex;
+    gap: 50px;
+}
+
+button {
+    font-size: larger;
+    font-weight: bold;
+    border-radius: 12px;
+    background-color: #79d1ee;
+    border: none;
+    box-shadow: 0 9px #999;
+}
+
+button :hover {
+    background-color: rgb(8, 126, 126);
+}
+
+button:active {
+    transform: translateY(4px);
+}
+
+#addNewBook {
+    flex-direction: column;
+    width: 500px;
+}
+
+.modal {
+    width: 500px;
+    display: none;
+    margin: auto;
+    background-color: aqua;
+    position: fixed;
+    top: 50%;
+    left: 35%;
+}
+.input{
+    padding: 10px;
+    border-radius: 10px;
 }
