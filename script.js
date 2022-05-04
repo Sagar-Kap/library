@@ -71,7 +71,7 @@ const addBookToLibrary =  (e) => {                 // Function to add Book info 
         read = "Not Read";
     }
 
-    if(myLibrary.length !== 0){for (let i = 0; i< myLibrary.length;  i++) {                        // Checks for already existing Book's title 
+    for (let i = 0; i< myLibrary.length;  i++) {                        // Checks for already existing Book's title 
         if (myLibrary[i].title === title){
             let errorMessage = document.createElement("label");
             errorMessage.classList.add("error-message");
@@ -79,8 +79,7 @@ const addBookToLibrary =  (e) => {                 // Function to add Book info 
 
             parentDiv.insertBefore(errorMessage, authorForm);
             return;
-        }
-    }}
+        }}
 
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
@@ -167,8 +166,10 @@ function changeArray(title, status) {                    // Change read status i
 formDisplay.addEventListener("submit", addBookToLibrary);
 openForm.addEventListener("click", () => modal.style.display = "flex");
 
-let localArray = JSON.parse(window.localStorage.getItem("library"));
-myLibrary = localArray;
+if(myLibrary.length !== 0){
+    let localArray = JSON.parse(window.localStorage.getItem("library"));
+    myLibrary = localArray;
+}
 
 document.addEventListener('click', function handleClickOutsideBox(event) {
   
@@ -177,5 +178,5 @@ document.addEventListener('click', function handleClickOutsideBox(event) {
     }
   });
   
-if(myLibrary.length !== 0){
-myLibrary.forEach(display)}
+
+myLibrary.forEach(display);
