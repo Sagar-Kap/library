@@ -1,4 +1,4 @@
-:root {
+:eroot {
     --primary-color: #edf2fc;
     --secondary-color: #212121;
 }
@@ -38,7 +38,7 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-   
+    margin-bottom: 50px;
 }
 
 .menu-box {
@@ -52,7 +52,8 @@ button {
     border-radius: 12px;
     background-color: #79d1ee;
     border: none;
-    box-shadow: 0 9px #999;
+    box-shadow: 0 9px #797777;
+    cursor: pointer;
 }
 
 button :hover {
@@ -65,19 +66,109 @@ button:active {
 
 #addNewBook {
     flex-direction: column;
-    width: 500px;
+    width: 332px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .modal {
-    width: 500px;
+    width: 433px;
     display: none;
     margin: auto;
-    background-color: aqua;
+    background-color: #5db556;
     position: fixed;
-    top: 50%;
+    top: 25%;
     left: 35%;
+    height: 357px;
+    border-radius: 30px;
 }
 .input{
     padding: 10px;
     border-radius: 10px;
+    margin-bottom: 15px;
+    border: none;
+    font-size: larger;
+}
+
+.read {
+    
+    font-size: x-large;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 40px 15px 10px;
+}
+
+#submit {
+
+    width: 100px;
+    margin-left: 117px;
+    background-color: #d21414d6;
+}
+
+.error-message {
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: red;
+    font-size: x-large;
+}
+
+.checkbox {
+    
+    width: 27px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.form-heading {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #212121;
+    font-size: x-large;
+}
+
+.library {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    word-break: break-all;
+    flex-wrap: wrap;
+}
+
+.individualBook {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px #aa9e9e;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+    padding-left: 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: x-large;
+}
+
+li {
+    margin-top: 10px;
+}
+
+button.book-container-buttons {
+    
+    font-weight: bold;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    color: #f9f9f9;
+    box-shadow: 1px 4px 2px #210995;
+}
+
+button#remove-button {
+    background-color: #8b8ca6;
 }

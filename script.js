@@ -99,20 +99,21 @@ function display(object) {                             // Function to edit indiv
 
  
     let titleLi = document.createElement("li");        // Push the object info into the Book DOM
-    titleLi.textContent = object.title;
+    titleLi.textContent = `"${object.title}"`;
 
     let authorLi = document.createElement("li");
     authorLi.textContent = object.author;
 
     let pagesLi = document.createElement("li");
-    pagesLi.textContent = object.pages;
+    pagesLi.textContent = `${object.pages} Pages`;
 
     ul.append(titleLi, authorLi, pagesLi);
     bookList.appendChild(box);
 
     let removeButton = document.createElement("button");    // Remove Button 
-    removeButton.classList.add("removeButton");
+    removeButton.classList.add("book-container-buttons");
     removeButton.textContent = "Remove";
+    removeButton.setAttribute("id", "remove-button");
      
     removeButton.addEventListener("click", () => {
         box.remove();
@@ -120,23 +121,57 @@ function display(object) {                             // Function to edit indiv
         if (index > -1){
             myLibrary.splice(index, 1);
         }
+        window.localStorage.setItem("library", JSON.stringify(myLibrary));
+        localArray = JSON.parse(window.localStorage.getItem("library"));
     });
-    ul.append(removeButton);
+    
 
     let readButton = document.createElement("button");      // Read Status change button 
-    ul.append(readButton);
+    readButton.classList.add("book-container-buttons");
     readButton.textContent = object.read;
+    if(object.read === "Read"){
+        readButton.style.backgroundColor = "#4f9d4f";
+    }
+    else{
+        readButton.style.backgroundColor = "#bb3535";
+    }
     readButton.addEventListener("click", ()=> {
         if (readButton.textContent === "Read"){
             readButton.textContent = "Not Read";
+            readButton.style.backgroundColor = "#bb3535";
         } 
-        else {readButton.textContent = "Read"};
+        else {
+        readButton.textContent = "Read";
+        readButton.style.backgroundColor = "#4f9d4f";
+        }
+        let status = readButton.textContent;
+        changeArray(object.title, status);
+        window.localStorage.setItem("library", JSON.stringify(myLibrary));
+        localArray = JSON.parse(window.localStorage.getItem("library"));
     });
-   
+
+    box.append(readButton);
+    box.append(removeButton);
+    window.localStorage.setItem("library", JSON.stringify(myLibrary));
 } 
+
+function changeArray(title, status) {                    // Change read status in the myLibrary array
+    for(let j=0; j< myLibrary.length; j++){
+        if(myLibrary[j].title === title) {
+            if(myLibrary[j].read !== status) {
+                myLibrary[j].read = status;
+            } 
+        }
+    }
+}
 
 formDisplay.addEventListener("submit", addBookToLibrary);
 openForm.addEventListener("click", () => modal.style.display = "flex");
+
+
+
+let localArray = JSON.parse(window.localStorage.getItem("library"));
+myLibrary = localArray;
 
 myLibrary.forEach(display);
 
