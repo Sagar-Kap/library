@@ -78,7 +78,6 @@ const addBookToLibrary =  (e) => {                 // Function to add Book info 
             errorMessage.textContent= "Book already added!";
 
             parentDiv.insertBefore(errorMessage, authorForm);
-            console.log("already added");
             return;
         }
     }
@@ -168,10 +167,17 @@ function changeArray(title, status) {                    // Change read status i
 formDisplay.addEventListener("submit", addBookToLibrary);
 openForm.addEventListener("click", () => modal.style.display = "flex");
 
-
-
 let localArray = JSON.parse(window.localStorage.getItem("library"));
 myLibrary = localArray;
 
-myLibrary.forEach(display);
+document.addEventListener('click', function handleClickOutsideBox(event) {
+    // 👇️ the element the user clicked
+    console.log('user clicked: ', event.target);
+  
+    if (!modal.contains(event.target) && !openForm.contains(event.target)) {
+      modal.style.display = 'none';
+    }
+  });
+  
 
+myLibrary.forEach(display);
