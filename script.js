@@ -71,7 +71,7 @@ const addBookToLibrary =  (e) => {                 // Function to add Book info 
         read = "Not Read";
     }
 
-    for (let i = 0; i< myLibrary.length;  i++) {                        // Checks for already existing Book's title 
+    if(myLibrary.length !== 0){for (let i = 0; i< myLibrary.length;  i++) {                        // Checks for already existing Book's title 
         if (myLibrary[i].title === title){
             let errorMessage = document.createElement("label");
             errorMessage.classList.add("error-message");
@@ -80,7 +80,7 @@ const addBookToLibrary =  (e) => {                 // Function to add Book info 
             parentDiv.insertBefore(errorMessage, authorForm);
             return;
         }
-    }
+    }}
 
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
@@ -171,8 +171,6 @@ let localArray = JSON.parse(window.localStorage.getItem("library"));
 myLibrary = localArray;
 
 document.addEventListener('click', function handleClickOutsideBox(event) {
-    // 👇️ the element the user clicked
-    console.log('user clicked: ', event.target);
   
     if (!modal.contains(event.target) && !openForm.contains(event.target)) {
       modal.style.display = 'none';
