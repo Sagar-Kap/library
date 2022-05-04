@@ -177,5 +177,5 @@ document.addEventListener('click', function handleClickOutsideBox(event) {
     }
   });
   
-
-myLibrary.forEach(display);
+if(myLibrary.length !== 0){
+myLibrary.forEach(display)}
