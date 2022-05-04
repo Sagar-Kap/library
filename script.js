@@ -166,10 +166,9 @@ function changeArray(title, status) {                    // Change read status i
 formDisplay.addEventListener("submit", addBookToLibrary);
 openForm.addEventListener("click", () => modal.style.display = "flex");
 
-if(myLibrary.length !== 0){
+
     let localArray = JSON.parse(window.localStorage.getItem("library"));
     myLibrary = localArray;
-}
 
 document.addEventListener('click', function handleClickOutsideBox(event) {
   
