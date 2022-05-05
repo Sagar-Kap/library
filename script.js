@@ -1,4 +1,5 @@
 let myLibrary = [];
+let localArray;
 
 const openForm = document.getElementById("newBook");
 const formDisplay = document.getElementById("addNewBook");
@@ -167,9 +168,10 @@ formDisplay.addEventListener("submit", addBookToLibrary);
 openForm.addEventListener("click", () => modal.style.display = "flex");
 
 
-    let localArray = JSON.parse(window.localStorage.getItem("library"));
+if(window.localStorage.getItem("library")) { 
+    localArray = JSON.parse(window.localStorage.getItem("library"));
     myLibrary = localArray;
-
+}
 document.addEventListener('click', function handleClickOutsideBox(event) {
   
     if (!modal.contains(event.target) && !openForm.contains(event.target)) {
